@@ -63,4 +63,13 @@ dt %>%
   mutate(waterLevel = waterLevel + 100) %>% 
   dygraph_ts_fun(.)
 
-#test
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# Step 3: Nates plots ----------------------------------------------------------
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+png("docs//nates_example.png", width = 7, height = 5, units = "in", res = 300)
+output<-dt %>% 
+  filter(Site_Name=='QB Wetland Well Shallow') %>% 
+  ggplot(aes(x=Timestamp, y=waterLevel)) + 
+  geom_line()
+dev.off()
